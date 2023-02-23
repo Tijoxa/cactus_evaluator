@@ -1,12 +1,12 @@
 use pyo3::prelude::*;
-use std::str::Chars;
 use std::cmp;
+use std::str::Chars;
 pub mod arrays;
 
 fn card_to_repr(card: &str) -> u32 {
     let mut iterator: Chars = card.chars();
     let symbol: Option<char> = iterator.next();
-    let color: Option<char>= iterator.next();
+    let color: Option<char> = iterator.next();
 
     let cdhs: u32;
     let rrrr: u32;
@@ -79,7 +79,7 @@ fn card_to_repr(card: &str) -> u32 {
             pppppp = arrays::PRIMES[12];
             bbbbbbbbbbbbb = 0x1 << 28
         }
-        _ => panic!("symbol unfound")
+        _ => panic!("symbol unfound"),
     };
 
     match color {
@@ -87,7 +87,7 @@ fn card_to_repr(card: &str) -> u32 {
         Some('D') => cdhs = 0x4 << 12,
         Some('H') => cdhs = 0x2 << 12,
         Some('S') => cdhs = 0x1 << 12,
-        _ => panic!("color unfound")
+        _ => panic!("color unfound"),
     };
 
     cdhs + rrrr + pppppp + bbbbbbbbbbbbb
@@ -136,12 +136,20 @@ fn evaluate(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str) -> 
     let c5: u32 = card_to_repr(card5);
 
     let result: u32 = eval_5cards(c1, c2, c3, c4, c5);
-    
+
     Ok(result)
 }
 
 #[pyfunction]
-fn evaluate_7(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str, card6: &str, card7: &str) -> PyResult<u32> {
+fn evaluate_7(
+    card1: &str,
+    card2: &str,
+    card3: &str,
+    card4: &str,
+    card5: &str,
+    card6: &str,
+    card7: &str,
+) -> PyResult<u32> {
     let c1: u32 = card_to_repr(card1);
     let c2: u32 = card_to_repr(card2);
     let c3: u32 = card_to_repr(card3);
@@ -155,10 +163,16 @@ fn evaluate_7(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str, c
     let mut result: u32 = 7462;
 
     for [id1, id2, id3, id4, id5] in arrays::PERM7 {
-        let tmp_result: u32 = eval_5cards(cards[*id1], cards[*id2], cards[*id3], cards[*id4], cards[*id5]);
+        let tmp_result: u32 = eval_5cards(
+            cards[*id1],
+            cards[*id2],
+            cards[*id3],
+            cards[*id4],
+            cards[*id5],
+        );
         result = cmp::min(tmp_result, result);
     }
-    
+
     Ok(result)
 }
 
