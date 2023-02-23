@@ -79,7 +79,7 @@ fn card_to_repr(card: &str) -> u32 {
             pppppp = arrays::PRIMES[12];
             bbbbbbbbbbbbb = 0x1 << 28
         }
-        _ => panic!("symbol unfound"),
+        _ => panic!("Symbol unfound"),
     };
 
     match color {
@@ -87,7 +87,7 @@ fn card_to_repr(card: &str) -> u32 {
         Some('D') => cdhs = 0x4 << 12,
         Some('H') => cdhs = 0x2 << 12,
         Some('S') => cdhs = 0x1 << 12,
-        _ => panic!("color unfound"),
+        _ => panic!("Color unfound"),
     };
 
     cdhs + rrrr + pppppp + bbbbbbbbbbbbb
