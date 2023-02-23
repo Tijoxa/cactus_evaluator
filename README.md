@@ -15,5 +15,6 @@ cactus_evaluator.evaluate_7('AC', '4C', '5C', 'TC', 'AH', '9H', '7S')
 ```
 
 # Source
-- [Cactus Kev Algorithm](http://suffe.cool/poker/7462.html)
+- [Cactus Kev Algorithm](https://suffe.cool/poker/evaluator.html)
+- [Hash Tables](http://suffe.cool/poker/7462.html)
 - [PyO3](https://github.com/PyO3/pyo3)
