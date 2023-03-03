@@ -5,13 +5,23 @@ Implémentation de l'algorithme Cactus Kev Perfect Hash.
 - [Rust](https://www.rust-lang.org/fr)
 - maturin (pip install maturin)
 
+# Installation
+## Par la source
+Nécessite [Rust](https://www.rust-lang.org/fr)
+<pre>pip install maturin
+maturin develop</pre>
+
+## Par wheels
+<pre>pip install .\cactus_evaluator-0.1.1-cp310-none-win_amd64.whl</pre>
+
 # Utilisation
-- maturin develop
 - Utilisation dans Python :
 ```Python
 import cactus_evaluator
 cactus_evaluator.evaluate('AC', '4C', '5C', 'TC', 'AH')
+>>> 3484
 cactus_evaluator.evaluate_7('AC', '4C', '5C', 'TC', 'AH', '9H', '7S')
+>>> 3463
 ```
 
 # Source
