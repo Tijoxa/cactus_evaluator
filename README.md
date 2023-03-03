@@ -1,10 +1,6 @@
 # cactus_evaluator
 Implémentation de l'algorithme Cactus Kev Perfect Hash.
 
-# Dépendances
-- [Rust](https://www.rust-lang.org/fr)
-- maturin (pip install maturin)
-
 # Installation
 ## Par la source
 Nécessite [Rust](https://www.rust-lang.org/fr)
