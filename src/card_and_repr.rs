@@ -123,3 +123,27 @@ pub fn card_to_repr(card: &str) -> u32 {
 //     let card = format!("{}{}", symbol, color);
 //     card
 // }
+
+// Tests of card_and_repr
+#[cfg(test)]
+mod tests {
+    use super::card_to_repr;
+
+    #[test]
+    fn card_to_repr_tests() {
+        let res = card_to_repr(&"TH");
+        assert_eq!(res, 16787479);
+    }
+
+    #[test]
+    #[should_panic(expected = "Symbol unfound")]
+    fn card_to_repr_panic_1() {
+        card_to_repr(&"Z");
+    }
+
+    #[test]
+    #[should_panic(expected = "Color unfound")]
+    fn card_to_repr_panic_2() {
+        card_to_repr(&"TT");
+    }
+}

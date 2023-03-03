@@ -35,7 +35,7 @@ fn eval_5cards(c1: u32, c2: u32, c3: u32, c4: u32, c5: u32) -> u32 {
 }
 
 #[pyfunction]
-fn evaluate(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str) -> PyResult<u32> {
+pub fn evaluate(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str) -> PyResult<u32> {
     let c1: u32 = card_to_repr(card1);
     let c2: u32 = card_to_repr(card2);
     let c3: u32 = card_to_repr(card3);
@@ -48,15 +48,7 @@ fn evaluate(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str) -> 
 }
 
 #[pyfunction]
-fn evaluate_7(
-    card1: &str,
-    card2: &str,
-    card3: &str,
-    card4: &str,
-    card5: &str,
-    card6: &str,
-    card7: &str,
-) -> PyResult<u32> {
+pub fn evaluate_7(card1: &str, card2: &str, card3: &str, card4: &str, card5: &str, card6: &str, card7: &str) -> PyResult<u32> {
     let c1: u32 = card_to_repr(card1);
     let c2: u32 = card_to_repr(card2);
     let c3: u32 = card_to_repr(card3);
@@ -89,4 +81,19 @@ fn cactus_evaluator(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(evaluate, m)?)?;
     m.add_function(wrap_pyfunction!(evaluate_7, m)?)?;
     Ok(())
+}
+
+// Tests of lib
+#[cfg(test)]
+mod lib_tests {
+    use super::eval_5cards;
+
+    #[test]
+    fn eval_5cards_tests() {
+        let res_1 = eval_5cards(8398611, 4204049, 2106637, 1057803, 16787479);
+        assert_eq!(res_1, 5);
+
+        let res_2 = eval_5cards(268471337, 295429, 557831, 16812055, 268446761);
+        assert_eq!(res_2, 3484);
+    }
 }
