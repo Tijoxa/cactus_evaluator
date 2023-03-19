@@ -8,7 +8,9 @@ Nécessite [Rust](https://www.rust-lang.org/fr)
 maturin develop</pre>
 
 ## Par wheels
-<pre>pip install .\cactus_evaluator-0.1.1-cp310-none-win_amd64.whl</pre>
+- Télécharger dans l'onglet [Releases](https://github.com/Tijoxa/cactus_evaluator/releases) le fichier *.whl* correspondant au système
+- Installer avec pip
+<pre>pip install cactus_evaluator-[version].whl</pre>
 
 # Utilisation
 - Utilisation dans Python :
