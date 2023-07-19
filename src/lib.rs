@@ -6,6 +6,8 @@
 // |xxxbbbbb|bbbbbbbb|cdhsrrrr|xxpppppp|
 // +--------+--------+--------+--------+
 
+#![allow(clippy::needless_late_init)]
+
 use pyo3::prelude::*;
 use std::cmp;
 mod arrays;

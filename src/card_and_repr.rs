@@ -131,19 +131,19 @@ mod tests {
 
     #[test]
     fn card_to_repr_tests() {
-        let res = card_to_repr(&"TH");
+        let res = card_to_repr("TH");
         assert_eq!(res, 16787479);
     }
 
     #[test]
     #[should_panic(expected = "Symbol unfound")]
     fn card_to_repr_panic_1() {
-        card_to_repr(&"Z");
+        card_to_repr("Z");
     }
 
     #[test]
     #[should_panic(expected = "Color unfound")]
     fn card_to_repr_panic_2() {
-        card_to_repr(&"TT");
+        card_to_repr("TT");
     }
 }
